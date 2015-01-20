@@ -43,7 +43,7 @@ define([
 
     defineProperties(PolylineGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof PolylineGraphics.prototype
          *
          * @type {Event}
@@ -101,14 +101,14 @@ define([
     });
 
     /**
-     * Duplicates a PolylineGraphics instance.
+     * Duplicates this instance.
      *
      * @param {PolylineGraphics} [result] The object onto which to store the result.
      * @returns {PolylineGraphics} The modified result parameter or a new instance if one was not provided.
      */
     PolylineGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new PolylineGraphics();
+            return new PolylineGraphics(this);
         }
         result.show = this.show;
         result.material = this.material;

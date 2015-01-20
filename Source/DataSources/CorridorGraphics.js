@@ -55,7 +55,7 @@ define([
 
     defineProperties(CorridorGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof CorridorGraphics.prototype
          *
          * @type {Event}
@@ -158,14 +158,14 @@ define([
     });
 
     /**
-     * Duplicates a CorridorGraphics instance.
+     * Duplicates this instance.
      *
      * @param {CorridorGraphics} [result] The object onto which to store the result.
      * @returns {CorridorGraphics} The modified result parameter or a new instance if one was not provided.
      */
     CorridorGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new CorridorGraphics();
+            return new CorridorGraphics(this);
         }
         result.show = this.show;
         result.material = this.material;

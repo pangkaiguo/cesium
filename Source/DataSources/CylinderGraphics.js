@@ -52,7 +52,7 @@ define([
     };
     defineProperties(CylinderGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof CylinderGraphics.prototype
          *
          * @type {Event}
@@ -145,14 +145,14 @@ define([
     });
 
     /**
-     * Duplicates a CylinderGraphics instance.
+     * Duplicates this instance.
      *
      * @param {CylinderGraphics} [result] The object onto which to store the result.
      * @returns {CylinderGraphics} The modified result parameter or a new instance if one was not provided.
      */
     CylinderGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new CylinderGraphics();
+            return new CylinderGraphics(this);
         }
         result.bottomRadius = this.bottomRadius;
         result.length = this.length;

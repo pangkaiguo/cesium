@@ -59,7 +59,7 @@ define([
 
     defineProperties(RectangleGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof RectangleGraphics.prototype
          *
          * @type {Event}
@@ -177,14 +177,14 @@ define([
     });
 
     /**
-     * Duplicates a RectangleGraphics instance.
+     * Duplicates this instance.
      *
      * @param {RectangleGraphics} [result] The object onto which to store the result.
      * @returns {RectangleGraphics} The modified result parameter or a new instance if one was not provided.
      */
     RectangleGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new RectangleGraphics();
+            return new RectangleGraphics(this);
         }
         result.show = this.show;
         result.coordinates = this.coordinates;

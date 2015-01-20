@@ -40,7 +40,7 @@ define([
 
     defineProperties(PointGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof PointGraphics.prototype
          *
          * @type {Event}
@@ -97,14 +97,14 @@ define([
     });
 
     /**
-     * Duplicates a PointGraphics instance.
+     * Duplicates this instance.
      *
      * @param {PointGraphics} [result] The object onto which to store the result.
      * @returns {PointGraphics} The modified result parameter or a new instance if one was not provided.
      */
     PointGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new PointGraphics();
+            return new PointGraphics(this);
         }
         result.color = this.color;
         result.pixelSize = this.pixelSize;

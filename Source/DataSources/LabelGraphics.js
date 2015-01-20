@@ -56,7 +56,7 @@ define([
 
     defineProperties(LabelGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof LabelGraphics.prototype
          *
          * @type {Event}
@@ -171,14 +171,14 @@ define([
     });
 
     /**
-     * Duplicates a LabelGraphics instance.
+     * Duplicates this instance.
      *
      * @param {LabelGraphics} [result] The object onto which to store the result.
      * @returns {LabelGraphics} The modified result parameter or a new instance if one was not provided.
      */
     LabelGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new LabelGraphics();
+            return new LabelGraphics(this);
         }
         result.text = this.text;
         result.font = this.font;

@@ -61,7 +61,7 @@ define([
 
     defineProperties(BillboardGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof BillboardGraphics.prototype
          *
          * @type {Event}
@@ -193,14 +193,14 @@ define([
     });
 
     /**
-     * Duplicates a BillboardGraphics instance.
+     * Duplicates this instance.
      *
      * @param {BillboardGraphics} [result] The object onto which to store the result.
      * @returns {BillboardGraphics} The modified result parameter or a new instance if one was not provided.
      */
     BillboardGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new BillboardGraphics();
+            return new BillboardGraphics(this);
         }
         result.color = this._color;
         result.eyeOffset = this._eyeOffset;

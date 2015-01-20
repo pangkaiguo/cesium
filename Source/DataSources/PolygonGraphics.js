@@ -57,7 +57,7 @@ define([
 
     defineProperties(PolygonGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof PolygonGraphics.prototype
          *
          * @type {Event}
@@ -177,14 +177,14 @@ define([
     });
 
     /**
-     * Duplicates a PolygonGraphics instance.
+     * Duplicates this instance.
      *
      * @param {PolygonGraphics} [result] The object onto which to store the result.
      * @returns {PolygonGraphics} The modified result parameter or a new instance if one was not provided.
      */
     PolygonGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new PolygonGraphics();
+            return new PolygonGraphics(this);
         }
         result.show = this.show;
         result.material = this.material;

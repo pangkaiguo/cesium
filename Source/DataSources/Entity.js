@@ -181,7 +181,7 @@ define([
             }
         },
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof Entity.prototype
          *
          * @type {Event}

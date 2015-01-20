@@ -59,7 +59,7 @@ define([
 
     defineProperties(EllipseGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof EllipseGraphics.prototype
          *
          * @type {Event}
@@ -177,14 +177,14 @@ define([
     });
 
     /**
-     * Duplicates a EllipseGraphics instance.
+     * Duplicates this instance.
      *
      * @param {EllipseGraphics} [result] The object onto which to store the result.
      * @returns {EllipseGraphics} The modified result parameter or a new instance if one was not provided.
      */
     EllipseGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new EllipseGraphics();
+            return new EllipseGraphics(this);
         }
         result.rotation = this.rotation;
         result.semiMajorAxis = this.semiMajorAxis;

@@ -45,7 +45,7 @@ define([
 
     defineProperties(BoxGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof BoxGraphics.prototype
          *
          * @type {Event}
@@ -108,14 +108,14 @@ define([
     });
 
     /**
-     * Duplicates a BoxGraphics instance.
+     * Duplicates this instance.
      *
      * @param {BoxGraphics} [result] The object onto which to store the result.
      * @returns {BoxGraphics} The modified result parameter or a new instance if one was not provided.
      */
     BoxGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new BoxGraphics();
+            return new BoxGraphics(this);
         }
         result.dimensions = this.dimensions;
         result.show = this.show;

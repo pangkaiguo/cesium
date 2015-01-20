@@ -51,7 +51,7 @@ define([
 
     defineProperties(WallGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof WallGraphics.prototype
          *
          * @type {Event}
@@ -141,14 +141,14 @@ define([
     });
 
     /**
-     * Duplicates a WallGraphics instance.
+     * Duplicates this instance.
      *
      * @param {WallGraphics} [result] The object onto which to store the result.
      * @returns {WallGraphics} The modified result parameter or a new instance if one was not provided.
      */
     WallGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new WallGraphics();
+            return new WallGraphics(this);
         }
         result.show = this.show;
         result.material = this.material;

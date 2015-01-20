@@ -51,7 +51,7 @@ define([
 
     defineProperties(PolylineVolumeGraphics.prototype, {
         /**
-         * Gets the event that is raised whenever a new property is assigned.
+         * Gets the event that is raised whenever a property or sub-property is changed or modified.
          * @memberof PolylineVolumeGraphics.prototype
          *
          * @type {Event}
@@ -136,14 +136,14 @@ define([
     });
 
     /**
-     * Duplicates a PolylineVolumeGraphics instance.
+     * Duplicates this instance.
      *
      * @param {PolylineVolumeGraphics} [result] The object onto which to store the result.
      * @returns {PolylineVolumeGraphics} The modified result parameter or a new instance if one was not provided.
      */
     PolylineVolumeGraphics.prototype.clone = function(result) {
         if (!defined(result)) {
-            result = new PolylineVolumeGraphics();
+            return new PolylineVolumeGraphics(this);
         }
         result.show = this.show;
         result.material = this.material;
