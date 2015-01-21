@@ -27,7 +27,7 @@ define([
      * @param {Property} [options.radii] A {@link Cartesian3} Property specifying the radii of the ellipsoid.
      * @param {Property} [options.show=true] A boolean Property specifying the visibility of the ellipsoid.
      * @param {Property} [options.fill=true] A boolean Property specifying whether the ellipsoid is filled with the provided material.
-     * @param {MaterialProperty} [options.material=Color.WHITE] The material used to fill the ellipsoid.
+     * @param {MaterialProperty} [options.material=Color.WHITE] A Property specifying the material used to fill the ellipsoid.
      * @param {Property} [options.outline=false] A boolean Property specifying whether the ellipsoid is outlined.
      * @param {Property} [options.outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
      * @param {Property} [options.outlineWidth=1.0] A numeric Property specifying the width of the outline.
@@ -93,7 +93,7 @@ define([
         radii : createPropertyDescriptor('radii'),
 
         /**
-         * Gets or sets the material used to fill the ellipsoid.
+         * Gets or sets the Property specifying the material used to fill the ellipsoid.
          * @memberof EllipsoidGraphics.prototype
          * @type {MaterialProperty}
          * @default Color.WHITE

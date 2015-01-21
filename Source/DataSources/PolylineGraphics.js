@@ -18,9 +18,23 @@ define([
     "use strict";
 
     /**
-     * An optionally time-dynamic polyline.
+     * Describes a polyline defined as a line strip. The first two positions define a line segment,
+     * and each additional position defines a line segment from the previous position. The segments
+     * can be linear connected points or great arcs.
+     *
      * @alias PolylineGraphics
      * @constructor
+     *
+     * @param {Object} options Object with the following properties:
+     * @param {Property} [options.positions] A Property specifying the array of {@link Cartesian3} positions that define the line strip.
+     * @param {Property} [options.followSurface=true] A boolean Property specifying whether the line segments should be great arcs or linearly connected.
+     * @param {Property} [options.width=1.0] A numeric Property specifying the width in pixels.
+     * @param {Property} [options.show=true] A boolean Property specifying the visibility of the polyline.
+     * @param {MaterialProperty} [options.material=Color.WHITE] A Property specifying the material used to draw the polyline.
+     * @param {Property} [options.granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between each latitude and longitude if followSurface is true.
+     *
+     * @see Entity
+     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Polyline.html|Sandcastle Polyline Demo}
      */
     var PolylineGraphics = function(options) {
         this._show = undefined;
@@ -56,46 +70,51 @@ define([
         },
 
         /**
-         * Gets or sets the boolean {@link Property} specifying the line's visibility.
+         * Gets or sets boolean Property specifying the visibility of the polyline.
          * @memberof PolylineGraphics.prototype
          * @type {Property}
+         * @default true
          */
         show : createPropertyDescriptor('show'),
 
         /**
-         * Gets or sets the {@link MaterialProperty} specifying the appearance of the polyline.
+         * Gets or sets the Property specifying the material used to draw the polyline.
          * @memberof PolylineGraphics.prototype
          * @type {MaterialProperty}
+         * @default Color.WHITE
          */
         material : createMaterialPropertyDescriptor('material'),
 
         /**
-         * Gets or sets the vertex positions.
+         * Gets or sets the Property specifying the array of {@link Cartesian3}
+         * positions that define the line strip.
          * @memberof PolylineGraphics.prototype
          * @type {Property}
          */
         positions : createPropertyDescriptor('positions'),
 
         /**
-         * Gets or sets the numeric {@link Property} specifying the the line's width.
+         * Gets or sets the numeric Property specifying the width in pixels.
          * @memberof PolylineGraphics.prototype
          * @type {Property}
+         * @default 1.0
          */
         width : createPropertyDescriptor('width'),
 
         /**
-         * Gets or sets the boolean {@link Property} specifying whether or not the
-         * points connecting the line should follow the curve of globe's surface.
+         * Gets or sets the boolean Property specifying whether the line segments
+         * should be great arcs or linearly connected.
          * @memberof PolylineGraphics.prototype
          * @type {Property}
+         * @default true
          */
         followSurface : createPropertyDescriptor('followSurface'),
 
         /**
-         * Gets or sets the numeric {@link Property} specifying the granularity
-         * of the resulting curve when followSurface is true.
+         * Gets or sets the numeric Property specifying the angular distance between each latitude and longitude if followSurface is true.
          * @memberof PolylineGraphics.prototype
          * @type {Property}
+         * @default Cesium.Math.RADIANS_PER_DEGREE
          */
         granularity : createPropertyDescriptor('granularity')
     });

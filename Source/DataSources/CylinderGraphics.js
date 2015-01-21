@@ -30,7 +30,7 @@ define([
      * @param {Property} [options.bottomRadius] A numeric Property specifying the radius of the bottom of the cylinder.
      * @param {Property} [options.show=true] A boolean Property specifying the visibility of the cylinder.
      * @param {Property} [options.fill=true] A boolean Property specifying whether the cylinder is filled with the provided material.
-     * @param {MaterialProperty} [options.material=Color.WHITE] The material used to fill the cylinder.
+     * @param {MaterialProperty} [options.material=Color.WHITE] A Property specifying the material used to fill the cylinder.
      * @param {Property} [options.outline=false] A boolean Property specifying whether the cylinder is outlined.
      * @param {Property} [options.outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
      * @param {Property} [options.outlineWidth=1.0] A numeric Property specifying the width of the outline.
@@ -128,7 +128,7 @@ define([
         show : createPropertyDescriptor('show'),
 
         /**
-         * Gets or sets the material used to fill the cylinder.
+         * Gets or sets the Property specifying the material used to fill the cylinder.
          * @memberof CylinderGraphics.prototype
          * @type {MaterialProperty}
          * @default Color.WHITE

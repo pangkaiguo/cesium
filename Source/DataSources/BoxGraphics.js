@@ -27,7 +27,7 @@ define([
      * @param {Property} [options.dimensions] A {@link Cartesian3} Property specifying the length, width, and height of the box.
      * @param {Property} [options.show=true] A boolean Property specifying the visibility of the box.
      * @param {Property} [options.fill=true] A boolean Property specifying whether the box is filled with the provided material.
-     * @param {MaterialProperty} [options.material=Color.WHITE] The material used to fill the box.
+     * @param {MaterialProperty} [options.material=Color.WHITE] A Property specifying the material used to fill the box.
      * @param {Property} [options.outline=false] A boolean Property specifying whether the box is outlined.
      * @param {Property} [options.outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
      * @param {Property} [options.outlineWidth=1.0] A numeric Property specifying the width of the outline.

@@ -27,22 +27,22 @@ define([
      * @constructor
      *
      * @param {Object} [options] Object with the following properties:
-     * @param {Property} [options.semiMajorAxis] The numeric Property defining the semi-major axis.
-     * @param {Property} [options.semiMinorAxis] The numeric Property defining the semi-minor axis.
+     * @param {Property} [options.semiMajorAxis] The numeric Property specifying the semi-major axis.
+     * @param {Property} [options.semiMinorAxis] The numeric Property specifying the semi-minor axis.
      * @param {Property} [options.height=0] A numeric Property specifying the altitude of the ellipse.
      * @param {Property} [options.extrudedHeight] A numeric Property specifying the altitude of the ellipse extrusion.
      * @param {Property} [options.show=true] A boolean Property specifying the visibility of the ellipse.
      * @param {Property} [options.fill=true] A boolean Property specifying whether the ellipse is filled with the provided material.
-     * @param {MaterialProperty} [options.material=Color.WHITE] The material used to fill the ellipse.
+     * @param {MaterialProperty} [options.material=Color.WHITE] A Property specifying the material used to fill the ellipse.
      * @param {Property} [options.outline=false] A boolean Property specifying whether the ellipse is outlined.
      * @param {Property} [options.outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
      * @param {Property} [options.outlineWidth=1.0] A numeric Property specifying the width of the outline.
      * @param {Property} [options.numberOfVerticalLines=16] A numeric Property specifying the number of vertical lines to draw along the perimeter for the outline.
-     * @param {Property} [options.rotation=0.0] A numeric property defining the rotation of the ellipse clockwise from north.
-     * @param {Property} [options.stRotation=0.0] A numeric property defining the rotation of the ellipse texture counter-clockwise from north.
-     * @param {Property} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between points on the ellipse.
+     * @param {Property} [options.rotation=0.0] A numeric property specifying the rotation of the ellipse clockwise from north.
+     * @param {Property} [options.stRotation=0.0] A numeric property specifying the rotation of the ellipse texture counter-clockwise from north.
+     * @param {Property} [options.granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between points on the ellipse.
      *
-     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Circles and Ellipses.html|Sandcastle Circles and Ellipses Demo}
+     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Circles and Ellipses.html|Sandcastle Circles and Ellipses Demo}
      */
     var EllipseGraphics = function(options) {
         this._semiMajorAxis = undefined;
@@ -93,21 +93,21 @@ define([
         },
 
         /**
-         * Gets or sets the numeric Property defining the semi-major axis.
+         * Gets or sets the numeric Property specifying the semi-major axis.
          * @memberof EllipseGraphics.prototype
          * @type {Property}
          */
         semiMajorAxis : createPropertyDescriptor('semiMajorAxis'),
 
         /**
-         * Gets or sets the numeric Property defining the semi-minor axis.
+         * Gets or sets the numeric Property specifying the semi-minor axis.
          * @memberof EllipseGraphics.prototype
          * @type {Property}
          */
         semiMinorAxis : createPropertyDescriptor('semiMinorAxis'),
 
         /**
-         * Gets or sets the numeric property defining the rotation of the ellipse clockwise from north.
+         * Gets or sets the numeric property specifying the rotation of the ellipse clockwise from north.
          * @memberof EllipseGraphics.prototype
          * @type {Property}
          * @default 0
@@ -123,7 +123,7 @@ define([
         show : createPropertyDescriptor('show'),
 
         /**
-         * Gets or sets the material used to fill the ellipse.
+         * Gets or sets the Property specifying the material used to fill the ellipse.
          * @memberof EllipseGraphics.prototype
          * @type {MaterialProperty}
          * @default Color.WHITE
@@ -155,7 +155,7 @@ define([
         granularity : createPropertyDescriptor('granularity'),
 
         /**
-         * Gets or sets the numeric property defining the rotation of the ellipse texture counter-clockwise from north.
+         * Gets or sets the numeric property specifying the rotation of the ellipse texture counter-clockwise from north.
          * @memberof EllipseGraphics.prototype
          * @type {Property}
          * @default 0

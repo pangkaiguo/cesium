@@ -33,11 +33,11 @@ define([
      * @param {Property} [options.extrudedHeight] A numeric Property specifying the altitude of the corridor extrusion.
      * @param {Property} [options.show=true] A boolean Property specifying the visibility of the corridor.
      * @param {Property} [options.fill=true] A boolean Property specifying whether the corridor is filled with the provided material.
-     * @param {MaterialProperty} [options.material=Color.WHITE] The material used to fill the corridor.
+     * @param {MaterialProperty} [options.material=Color.WHITE] A Property specifying the material used to fill the corridor.
      * @param {Property} [options.outline=false] A boolean Property specifying whether the corridor is outlined.
      * @param {Property} [options.outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
      * @param {Property} [options.outlineWidth=1.0] A numeric Property specifying the width of the outline.
-     * @param {Property} [options.granularity=CesiumMath.RADIANS_PER_DEGREE] A numeric Property specifying the distance between each latitude and longitude.
+     * @param {Property} [options.granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the distance between each latitude and longitude.
      *
      * @see Entity
      * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Corridor.html|Sandcastle Corridor Demo}
@@ -94,7 +94,7 @@ define([
         show : createPropertyDescriptor('show'),
 
         /**
-         * Gets or sets the material used to fill the corridor.
+         * Gets or sets the Property specifying the material used to fill the corridor.
          * @memberof CorridorGraphics.prototype
          * @type {MaterialProperty}
          * @default Color.WHITE
