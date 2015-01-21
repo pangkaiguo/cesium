@@ -42,7 +42,7 @@ define([
      * @param {Property} [options.stRotation=0.0] A numeric property specifying the rotation of the ellipse texture counter-clockwise from north.
      * @param {Property} [options.granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between points on the ellipse.
      *
-     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Circles and Ellipses.html|Sandcastle Circles and Ellipses Demo}
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Circles and Ellipses.html|Cesium Sandcastle Circles and Ellipses Demo}
      */
     var EllipseGraphics = function(options) {
         this._semiMajorAxis = undefined;
@@ -163,7 +163,7 @@ define([
         stRotation : createPropertyDescriptor('stRotation'),
 
         /**
-         * Gets or sets boolean Property specifying whether the ellipse is filled with the provided material.
+         * Gets or sets the boolean Property specifying whether the ellipse is filled with the provided material.
          * @memberof EllipseGraphics.prototype
          * @type {Property}
          * @default true

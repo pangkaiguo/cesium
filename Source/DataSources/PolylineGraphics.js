@@ -25,7 +25,7 @@ define([
      * @alias PolylineGraphics
      * @constructor
      *
-     * @param {Object} options Object with the following properties:
+     * @param {Object} [options] Object with the following properties:
      * @param {Property} [options.positions] A Property specifying the array of {@link Cartesian3} positions that define the line strip.
      * @param {Property} [options.followSurface=true] A boolean Property specifying whether the line segments should be great arcs or linearly connected.
      * @param {Property} [options.width=1.0] A numeric Property specifying the width in pixels.
@@ -34,7 +34,7 @@ define([
      * @param {Property} [options.granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between each latitude and longitude if followSurface is true.
      *
      * @see Entity
-     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Polyline.html|Sandcastle Polyline Demo}
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Polyline.html|Cesium Sandcastle Polyline Demo}
      */
     var PolylineGraphics = function(options) {
         this._show = undefined;
@@ -70,7 +70,7 @@ define([
         },
 
         /**
-         * Gets or sets boolean Property specifying the visibility of the polyline.
+         * Gets or sets the boolean Property specifying the visibility of the polyline.
          * @memberof PolylineGraphics.prototype
          * @type {Property}
          * @default true

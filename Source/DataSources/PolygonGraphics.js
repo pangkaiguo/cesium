@@ -42,7 +42,7 @@ define([
      * @param {Property} [options.perPositionHeight=false] A boolean specifying whether or not the the height of each position is used.
      *
      * @see Entity
-     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Polygon.html|Sandcastle Polygon Demo}
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Polygon.html|Cesium Sandcastle Polygon Demo}
      */
     var PolygonGraphics = function(options) {
         this._show = undefined;
@@ -163,7 +163,7 @@ define([
         stRotation : createPropertyDescriptor('stRotation'),
 
         /**
-         * Gets or sets boolean Property specifying whether the polygon is filled with the provided material.
+         * Gets or sets the boolean Property specifying whether the polygon is filled with the provided material.
          * @memberof PolygonGraphics.prototype
          * @type {Property}
          * @default true
@@ -195,7 +195,7 @@ define([
         outlineWidth : createPropertyDescriptor('outlineWidth'),
 
         /**
-         * Gets or sets boolean specifying whether or not the the height of each position is used.
+         * Gets or sets the boolean specifying whether or not the the height of each position is used.
          * If true, the shape will have non-uniform altitude defined by the height of each {@link PolygonGraphics#hierarchy} position.
          * If false, the shape will have a constant altitude as specified by {@link PolygonGraphics#height}.
          * @memberof PolygonGraphics.prototype

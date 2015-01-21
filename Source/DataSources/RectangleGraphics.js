@@ -42,7 +42,7 @@ define([
      * @param {Property} [options.granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between points on the rectangle.
      *
      * @see Entity
-     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Rectangle.html|Sandcastle Rectangle Demo}
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Rectangle.html|Cesium Sandcastle Rectangle Demo}
      */
     var RectangleGraphics = function(options) {
         this._show = undefined;
@@ -156,7 +156,7 @@ define([
         rotation : createPropertyDescriptor('rotation'),
 
         /**
-         * Gets or sets boolean Property specifying whether the rectangle is filled with the provided material.
+         * Gets or sets the boolean Property specifying whether the rectangle is filled with the provided material.
          * @memberof RectangleGraphics.prototype
          * @type {Property}
          * @default true

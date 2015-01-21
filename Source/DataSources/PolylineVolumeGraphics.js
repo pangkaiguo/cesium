@@ -24,7 +24,7 @@ define([
      * @alias PolylineVolumeGraphics
      * @constructor
      *
-     * @param {Object} options Object with the following properties:
+     * @param {Object} [options] Object with the following properties:
      * @param {Property} [options.positions] A Property specifying the array of {@link Cartesian3} positions which define the line strip.
      * @param {Property} [options.shape] A Property specifying the array of {@link Cartesian2} positions which define the shape to be extruded.
      * @param {Property} [options.cornerType=CornerType.ROUNDED] A {@link CornerType} Property specifying the style of the corners.
@@ -37,7 +37,7 @@ define([
      * @param {Property} [options.granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between each latitude and longitude point.
      *
      * @see Entity
-     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Polyline%20Volume.html|Sandcastle Polyline Volume Demo}
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Polyline%20Volume.html|Cesium Sandcastle Polyline Volume Demo}
      */
     var PolylineVolumeGraphics = function(options) {
         this._show = undefined;
@@ -118,7 +118,7 @@ define([
         granularity : createPropertyDescriptor('granularity'),
 
         /**
-         * Gets or sets boolean Property specifying whether the volume is filled with the provided material.
+         * Gets or sets the boolean Property specifying whether the volume is filled with the provided material.
          * @memberof PolylineVolumeGraphics.prototype
          * @type {Property}
          * @default true

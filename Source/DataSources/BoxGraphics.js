@@ -32,7 +32,7 @@ define([
      * @param {Property} [options.outlineColor=Color.BLACK] A Property specifying the {@link Color} of the outline.
      * @param {Property} [options.outlineWidth=1.0] A numeric Property specifying the width of the outline.
      *
-     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Box.html|Sandcastle Box Demo}
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Box.html|Cesium Sandcastle Box Demo}
      */
     var BoxGraphics = function(options) {
         this._dimensions = undefined;
@@ -91,7 +91,7 @@ define([
         material : createMaterialPropertyDescriptor('material'),
 
         /**
-         * Gets or sets boolean Property specifying whether the box is filled with the provided material.
+         * Gets or sets the boolean Property specifying whether the box is filled with the provided material.
          * @memberof BoxGraphics.prototype
          * @type {Property}
          * @default true

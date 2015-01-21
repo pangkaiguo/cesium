@@ -35,7 +35,7 @@ define([
      * @param {Property} [options.stackPartitions=64] A Property specifying the number of stacks.
      * @param {Property} [options.slicePartitions=64] A Property specifying the number of radial slices.
      *
-     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Spheres%20and%20Ellipsoids.html|Sandcastle Spheres and Ellipsoids Demo}
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Spheres%20and%20Ellipsoids.html|Cesium Sandcastle Spheres and Ellipsoids Demo}
      */
     var EllipsoidGraphics = function(options) {
         this._show = undefined;
@@ -101,7 +101,7 @@ define([
         material : createMaterialPropertyDescriptor('material'),
 
         /**
-         * Gets or sets boolean Property specifying whether the ellipsoid is filled with the provided material.
+         * Gets or sets the boolean Property specifying whether the ellipsoid is filled with the provided material.
          * @memberof EllipsoidGraphics.prototype
          * @type {Property}
          * @default true

@@ -16,10 +16,36 @@ define([
     "use strict";
 
     /**
-     * An optionally time-dynamic billboard.
+     * Describes a two dimensional icon located at the position of the containing {@link Entity}.
+     * <p>
+     * <div align='center'>
+     * <img src='images/Billboard.png' width='400' height='300' /><br />
+     * Example billboards
+     * </div>
+     * </p>
      *
      * @alias BillboardGraphics
      * @constructor
+     *
+     * @param {Object} [options] Object with the following properties:
+     * @param {Property} [options.image] A Property specifying the Image, URI, or Canvas to use for the billboard.
+     * @param {Property} [options.show=true] A boolean Property specifying the visibility of the billboard.
+     * @param {Property} [options.scale=1.0] A numeric Property specifying the scale of the image size.
+     * @param {Property} [options.horizontalOrigin=HorizontalOrigin.CENTER] A Property specifying the {@link HorizontalOrigin}.
+     * @param {Property} [options.verticalOrigin=VerticalOrigin.CENTER] A Property specifying the {@link VerticalOrigin}.
+     * @param {Property} [options.eyeOffset=Cartesian3.ZERO] A {@link Cartesian3} Property specifying the eye offset.
+     * @param {Property} [options.pixelOffset=Cartesian2.ZERO] A {@link Cartesian2} Property specifying the pixel offset.
+     * @param {Property} [options.rotation=0] A numeric Property specifying the rotation.
+     * @param {Property} [options.alignedAxis=Cartesian3.ZERO] A {@link Cartesian3} Property specifying the billboard axis of rotation.
+     * @param {Property} [options.width] A numeric Property specifying the width of the billboard in pixels, overriding the actual size.
+     * @param {Property} [options.height] A numeric Property specifying the height of the billboard in pixels, overriding the actual size.
+     * @param {Property} [options.color=Color.WHITE] A {@link Color} Property specifying the tint color of the image.
+     * @param {Property} [options.scaleByDistance] A {@link NearFarScalar} Property used to scale the point based on distance.
+     * @param {Property} [options.translucencyByDistance] A {@link NearFarScalar} Property used to set translucency based on distance.
+     * @param {Property} [options.pixelOffsetScaleByDistance] A {@link NearFarScalar} Property used to set pixelOffset based on distance.
+     * @param {Property} [options.imageSubRegion] A Property specifying a {@link BoundingRectangle} that defines a sub-region of the image to use for the billboard, rather than the entire image.
+     *
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Billboards.html|Cesium Sandcastle Billboard Demo}
      */
     var BillboardGraphics = function(options) {
         this._image = undefined;
@@ -74,85 +100,94 @@ define([
         },
 
         /**
-         * Gets or sets the Image, URL, or Canvas {@link Property} specifying the billboard's texture.
+         * Gets or sets the Property specifying the Image, URI, or Canvas to use for the billboard.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         image : createPropertyDescriptor('image'),
 
         /**
-         * Gets or sets the {@link BoundingRectangle} that defines a sub-region of the
-         * specified image to use for the billboard, rather than the entire image.
+         * Gets or sets the Property specifying a {@link BoundingRectangle} that defines a
+         * sub-region of the image to use for the billboard, rather than the entire image.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         imageSubRegion : createPropertyDescriptor('imageSubRegion'),
 
         /**
-         * Gets or sets the numeric {@link Property} specifying the billboard's scale.
+         * Gets or sets the numeric Property specifying the uniform scale to apply to the image.
+         * A scale greater than <code>1.0</code> enlarges the billboard while a scale less than <code>1.0</code> shrinks it.
+         * <p>
+         * <div align='center'>
+         * <img src='images/Billboard.setScale.png' width='400' height='300' /><br/>
+         * From left to right in the above image, the scales are <code>0.5</code>, <code>1.0</code>, and <code>2.0</code>.
+         * </div>
+         * </p>
          * @memberof BillboardGraphics.prototype
          * @type {Property}
+         * @default 1.0
          */
         scale : createPropertyDescriptor('scale'),
 
         /**
-         * Gets or sets the numeric {@link Property} specifying the billboard's rotation.
+         * Gets or sets the numeric Property specifying the billboard's rotation counter clockwise
+         * from {@link Billboard.alignedAxis}.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         rotation : createPropertyDescriptor('rotation'),
 
         /**
-         * Gets or sets the {@link Cartesian3} {@link Property} specifying the billboard rotation's aligned axis.
+         * Gets or sets the {@link Cartesian3} Property specifying the billboard rotation's aligned axis.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         alignedAxis : createPropertyDescriptor('alignedAxis'),
 
         /**
-         * Gets or sets the {@link HorizontalOrigin} {@link Property} specifying the billboard's horizontal origin.
+         * Gets or sets the {@link HorizontalOrigin} Property specifying the billboard's horizontal origin.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         horizontalOrigin : createPropertyDescriptor('horizontalOrigin'),
 
         /**
-         * Gets or sets the {@link VerticalOrigin} {@link Property} specifying the billboard's vertical origin.
+         * Gets or sets the {@link VerticalOrigin} Property specifying the billboard's vertical origin.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         verticalOrigin : createPropertyDescriptor('verticalOrigin'),
 
         /**
-         * Gets or sets the {@link Color} {@link Property} specifying the billboard's color.
+         * Gets or sets the {@link Color} Property specifying the billboard's color.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         color : createPropertyDescriptor('color'),
 
         /**
-         * Gets or sets the {@link Cartesian3} {@link Property} specifying the billboard's eye offset.
+         * Gets or sets the {@link Cartesian3} Property specifying the billboard's eye offset.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         eyeOffset : createPropertyDescriptor('eyeOffset'),
 
         /**
-         * Gets or sets the {@link Cartesian2} {@link Property} specifying the billboard's pixel offset.
+         * Gets or sets the {@link Cartesian2} Property specifying the billboard's pixel offset.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         pixelOffset : createPropertyDescriptor('pixelOffset'),
 
         /**
-         * Gets or sets the boolean {@link Property} specifying the billboard's visibility.
+         * Gets or sets the boolean Property specifying the billboard's visibility.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
          */
         show : createPropertyDescriptor('show'),
 
         /**
-         * Gets or sets the numeric {@link Property} specifying the billboard's width in pixels.
+         * Gets or sets the numeric Property specifying the billboard's width in pixels.
          * If undefined, the native width is used.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
@@ -160,7 +195,7 @@ define([
         width : createPropertyDescriptor('width'),
 
         /**
-         * Gets or sets the numeric {@link Property} specifying the billboard's height in pixels.
+         * Gets or sets the numeric Property specifying the billboard's height in pixels.
          * If undefined, the native height is used.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
@@ -168,7 +203,7 @@ define([
         height : createPropertyDescriptor('height'),
 
         /**
-         * Gets or sets the {@link NearFarScalar} {@link Property} used to scale billboards based on distance.
+         * Gets or sets the {@link NearFarScalar} Property used to scale billboards based on distance.
          * If undefined, a constant size is used.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
@@ -176,7 +211,7 @@ define([
         scaleByDistance : createPropertyDescriptor('scaleByDistance'),
 
         /**
-         * Gets or sets the {@link NearFarScalar} {@link Property} used to set translucency based on distance.
+         * Gets or sets the {@link NearFarScalar} Property used to set translucency based on distance.
          * If undefined, a constant size is used.
          * @memberof BillboardGraphics.prototype
          * @type {Property}
@@ -184,7 +219,7 @@ define([
         translucencyByDistance : createPropertyDescriptor('translucencyByDistance'),
 
         /**
-         * Gets or sets the {@link NearFarScalar} {@link Property} used to set pixel offset scaling based on distance.
+         * Gets or sets the {@link NearFarScalar} Property used to set pixel offset scaling based on distance.
          * If undefined, no additional scale is applied to the pixel offset
          * @memberof BillboardGraphics.prototype
          * @type {Property}

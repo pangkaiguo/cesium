@@ -24,7 +24,7 @@ define([
      * @alias WallGraphics
      * @constructor
      *
-     * @param {Object} options Object with the following properties:
+     * @param {Object} [options] Object with the following properties:
      * @param {Property} [options.positions] A Property specifying the array of {@link Cartesian3} positions which define the top of the wall.
      * @param {Property} [options.maximumHeights] A Property specifying an array of heights to be used for the top of the wall instead of the height of each position.
      * @param {Property} [options.minimumHeights] A Property specifying an array of heights to be used for the bottom of the wall instead of the globe surface.
@@ -37,7 +37,7 @@ define([
      * @param {Property} [options.granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the angular distance between each latitude and longitude point.
      *
      * @see Entity
-     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Wall.html|Sandcastle Wall Demo}
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Wall.html|Cesium Sandcastle Wall Demo}
      */
     var WallGraphics = function(options) {
         this._show = undefined;
@@ -127,7 +127,7 @@ define([
         granularity : createPropertyDescriptor('granularity'),
 
         /**
-         * Gets or sets boolean Property specifying whether the wall is filled with the provided material.
+         * Gets or sets the boolean Property specifying whether the wall is filled with the provided material.
          * @memberof WallGraphics.prototype
          * @type {Property}
          * @default true

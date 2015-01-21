@@ -40,7 +40,7 @@ define([
      * @param {Property} [options.granularity=Cesium.Math.RADIANS_PER_DEGREE] A numeric Property specifying the distance between each latitude and longitude.
      *
      * @see Entity
-     * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Corridor.html|Sandcastle Corridor Demo}
+     * @demo {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=Corridor.html|Cesium Sandcastle Corridor Demo}
      */
     var CorridorGraphics = function(options) {
         this._show = undefined;
@@ -141,7 +141,7 @@ define([
         width : createPropertyDescriptor('width'),
 
         /**
-         * Gets or sets boolean Property specifying whether the corridor is filled with the provided material.
+         * Gets or sets the boolean Property specifying whether the corridor is filled with the provided material.
          * @memberof CorridorGraphics.prototype
          * @type {Property}
          * @default true
