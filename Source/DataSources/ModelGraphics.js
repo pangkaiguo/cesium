@@ -17,9 +17,10 @@ define([
 
     /**
      * A 3D model based on {@link https://github.com/KhronosGroup/glTF|glTF}, the runtime asset format for WebGL, OpenGL ES, and OpenGL.
+     * The position and orientation of the model is determined by the containing {@link Entity}.
      * <p>
-     * Cesium includes support for geometry and materials, glTF animations, and glTF skinning.
-     * glTF cameras and lights are not currently supported.
+     * Cesium includes support for glTF geometry, materials, animations, and skinning.
+     * Cameras and lights are not currently supported.
      * </p>
      *
      * @alias ModelGraphics
@@ -31,7 +32,6 @@ define([
      * @param {Property} [options.scale=1.0] A numeric Property specifying a uniform linear scale.
      * @param {Property} [options.minimumPixelSize=0.0] A numeric Property specifying the approximate minimum pixel size of the model regardless of zoom.
      *
-     * @see Entity
      * @see {@link http://cesiumjs.org/2014/03/03/Cesium-3D-Models-Tutorial/|3D Models Tutorial}
      * @see {@link http://cesiumjs.org/Cesium/Apps/Sandcastle/index.html?src=3D%20Models.html|Sandcastle 3D Models Demo}
      */
@@ -61,6 +61,7 @@ define([
                 return this._definitionChanged;
             }
         },
+
         /**
          * Gets or sets the boolean Property specifying the visibility of the model.
          * @memberof ModelGraphics.prototype
@@ -68,6 +69,7 @@ define([
          * @default true
          */
         show : createPropertyDescriptor('show'),
+
         /**
          * Gets or sets the numeric Property specifying a uniform linear scale
          * for this model. Values greater than 1.0 increase the size of the model while
@@ -77,6 +79,7 @@ define([
          * @default 1.0
          */
         scale : createPropertyDescriptor('scale'),
+
         /**
          * Gets or sets the numeric Property specifying the approximate minimum
          * pixel size of the model regardless of zoom. This can be used to ensure that
@@ -87,6 +90,7 @@ define([
          * @default 0.0
          */
         minimumPixelSize : createPropertyDescriptor('minimumPixelSize'),
+
         /**
          * Gets or sets the string Property specifying the URI of the glTF asset.
          * @memberof ModelGraphics.prototype
