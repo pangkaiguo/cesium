@@ -24,7 +24,7 @@ define([
     /**
      * A {@link MaterialProperty} that maps to solid color {@link Material} uniforms.
      *
-     * @param {Property} [color] The {@link Color} Property to be used.
+     * @param {Property} [color=Color.WHITE] The {@link Color} Property to be used.
      *
      * @alias ColorMaterialProperty
      * @constructor
@@ -85,7 +85,8 @@ define([
         /**
          * Gets or sets the {@link Color} {@link Property}.
          * @memberof ColorMaterialProperty.prototype
-         * @type {Property}
+         * @type {Property},
+         * @default Color.WHITE
          */
         color : createPropertyDescriptor('color')
     });

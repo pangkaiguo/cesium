@@ -79,7 +79,7 @@ define([
          * Gets or sets the {@link Cartesian2} Property specifying the number of times the image repeats in each direction.
          * @memberof ImageMaterialProperty.prototype
          * @type {Property}
-         * @default new ConstantProperty(new Cartesian2(1, 1))
+         * @default new Cartesian2(1, 1)
          */
         repeat : createPropertyDescriptor('repeat')
     });

@@ -100,18 +100,21 @@ define([
          * Gets or sets the Property specifying the {@link StripeOrientation}/
          * @memberof StripeMaterialProperty.prototype
          * @type {Property}
+         * @default StripeOrientation.HORIZONTAL
          */
         orientation : createPropertyDescriptor('orientation'),
         /**
          * Gets or sets the Property specifying the first {@link Color}.
          * @memberof StripeMaterialProperty.prototype
          * @type {Property}
+         * @default Color.WHITE
          */
         evenColor : createPropertyDescriptor('evenColor'),
         /**
          * Gets or sets the Property specifying the second {@link Color}.
          * @memberof StripeMaterialProperty.prototype
          * @type {Property}
+         * @default Color.BLACK
          */
         oddColor : createPropertyDescriptor('oddColor'),
         /**
@@ -121,12 +124,14 @@ define([
          * being in between.
          * @memberof StripeMaterialProperty.prototype
          * @type {Property}
+         * @default 0.0
          */
         offset : createPropertyDescriptor('offset'),
         /**
          * Gets or sets the numeric Property specifying how many times the stripes repeat.
          * @memberof StripeMaterialProperty.prototype
          * @type {Property}
+         * @default 1.0
          */
         repeat : createPropertyDescriptor('repeat')
     });
