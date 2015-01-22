@@ -85,7 +85,7 @@ define([
         /**
          * Gets or sets the {@link Color} {@link Property}.
          * @memberof ColorMaterialProperty.prototype
-         * @type {Property},
+         * @type {Property}
          * @default Color.WHITE
          */
         color : createPropertyDescriptor('color')
