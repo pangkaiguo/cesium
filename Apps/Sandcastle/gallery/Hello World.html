@@ -28,6 +28,103 @@ function startup(Cesium) {
     "use strict";
 //Sandcastle_Begin
 var viewer = new Cesium.Viewer('cesiumContainer');
+
+var toolbar = document.getElementById('toolbar');
+var up = document.createElement('div');
+var right = document.createElement('div');
+var heading = document.createElement('div');
+var pitch = document.createElement('div');
+var roll = document.createElement('div');
+
+toolbar.appendChild(up);
+toolbar.appendChild(right);
+toolbar.appendChild(heading);
+toolbar.appendChild(pitch);
+toolbar.appendChild(roll);
+
+viewer.scene.postRender.addEventListener(function() {
+    if (viewer.scene.mode === Cesium.SceneMode.MORPHING) {
+        return;
+    }
+    
+    var camera = viewer.camera;
+    
+    var transform = Cesium.Transforms.eastNorthUpToFixedFrame(camera.position);
+    camera._setTransform(transform);
+    
+    up.innerText = 'up : (' + camera.up.x.toFixed(6) + ', ' + camera.up.y.toFixed(6) + ', ' + camera.up.z.toFixed(6) + ')';
+    right.innerText = 'right : (' + camera.right.x.toFixed(6) + ', ' + camera.right.y.toFixed(6) + ', ' + camera.right.z.toFixed(6) + ')';
+    
+    camera._setTransform(Cesium.Matrix4.IDENTITY);
+    
+    heading.innerText = 'heading : ' + Cesium.Math.toDegrees(camera.heading).toFixed(6);
+    pitch.innerText = 'pitch : ' + Cesium.Math.toDegrees(camera.pitch).toFixed(6);
+    roll.innerText = 'roll : ' + Cesium.Math.toDegrees(camera.roll).toFixed(6);
+});
+
+var canvas = viewer.canvas;
+canvas.setAttribute('tabindex', '0');
+canvas.onclick = function() {
+    canvas.focus();
+};
+
+var flags = {
+    rollLeft : false,
+    rollRight : false,
+    setHeading : false
+};
+
+function getFlagForKeyCode(keyCode) {
+    switch (keyCode) {
+    case 'D'.charCodeAt(0):
+        return 'rollLeft';
+    case 'A'.charCodeAt(0):
+        return 'rollRight';
+    default:
+        return undefined;
+    }
+}
+
+document.addEventListener('keydown', function(e) {
+    var flagName = getFlagForKeyCode(e.keyCode);
+    if (typeof flagName !== 'undefined') {
+        flags[flagName] = true;
+    }
+}, false);
+
+document.addEventListener('keyup', function(e) {
+    var flagName = getFlagForKeyCode(e.keyCode);
+    if (typeof flagName !== 'undefined') {
+        flags[flagName] = false;
+    }
+}, false);
+
+var delta = Cesium.Math.toRadians(1.0);
+viewer.clock.onTick.addEventListener(function(clock) {
+    var camera = viewer.camera;
+    if (flags.rollRight) {
+        camera.twistRight(delta);
+    }
+    if (flags.rollLeft) {
+        camera.twistLeft(delta);
+    }
+});
+
+var camera = viewer.scene.camera;
+camera.position = Cesium.Cartesian3.fromDegrees(136.0, -24.0, 4500000.0);
+Cesium.Cartesian3.negate(camera.position, camera.direction);
+Cesium.Cartesian3.normalize(camera.direction, camera.direction);
+Cesium.Cartesian3.clone(Cesium.Cartesian3.UNIT_Z, camera.up);
+Cesium.Cartesian3.cross(camera.direction, camera.up, camera.right);
+Cesium.Cartesian3.cross(camera.right, camera.direction, camera.up);
+
+//var toolbar = document.getElementById('toolbar');
+var headingInput = document.createElement('input');
+toolbar.appendChild(headingInput);
+headingInput.addEventListener('focusout', function() {
+    viewer.camera.heading = Number.parseFloat(headingInput.value);
+}, false);
+
 //Sandcastle_End
     Sandcastle.finishedLoading();
 }
